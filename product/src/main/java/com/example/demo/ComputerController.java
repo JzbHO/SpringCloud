@@ -26,9 +26,9 @@ public class ComputerController {
     @RequestMapping(value = "/test")
     public String index(){
         System.out.println("coming....");
-        ServiceInstance instance = serviceInstance();
-        LOGGER.info("provider service, host = " + instance.getHost()
-                + ", service_id = " + instance.getServiceId());
+//        ServiceInstance instance = serviceInstance();
+//        LOGGER.info("provider service, host = " + instance.getHost()
+//                + ", service_id = " + instance.getServiceId());
         return "Hello,Provider!";
     }
 

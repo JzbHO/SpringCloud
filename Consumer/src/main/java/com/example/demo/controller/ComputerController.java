@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.HelloService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,18 @@ public class ComputerController {
 
     @Autowired
     RestTemplate restTemplate;
+
+    @Autowired
+    HelloService helloService;
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String add() {
         return restTemplate.getForEntity("http://compute-service/test", String.class).getBody();
     }
+
+    @RequestMapping(value = "/ribbon-consumer",method = RequestMethod.GET)
+    public String helloConsumer(){
+        return helloService.helloService();
+    }
+
+
 }
